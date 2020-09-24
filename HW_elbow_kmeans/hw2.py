@@ -20,14 +20,14 @@ visualizer.show()
 # TODO calculate accuracy for best K
 best_k = visualizer.elbow_value_
 kmeans = KMeans(n_clusters=best_k)
-labels = kmeans.fit_predict(X)
+y_pred = kmeans.fit_predict(X)
 
 #make the labels predicted from KMeans match y_true from make_blobs
-predictions = np.zeros_like(labels)
+# took this out of the text book
+predictions = np.zeros_like(y_pred)
 for i in range(best_k):
-    mask=(labels==i)
+    mask=(y_pred==i)
     predictions[mask]=mode(y_true[mask])[0]
-
 
 accuracy = accuracy_score(y_true, predictions)
 print("Accuracy Score = ", accuracy*100, "%")
