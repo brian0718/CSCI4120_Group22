@@ -12,7 +12,7 @@ X, y_true = make_blobs(n_samples=300, centers=4,
                        cluster_std=0.60, random_state=0)
 
 # TODO determine the best k for k-means
-visualizer = KElbowVisualizer(KMeans(), k=(2, 10))
+visualizer = KElbowVisualizer(KMeans(), k=(1, 10))
 visualizer.fit(X)
 visualizer.show()
 
